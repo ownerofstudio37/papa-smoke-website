@@ -48,6 +48,7 @@ export default async function Home() {
                   alt="Neon retail smoke shop atmosphere"
                   fill
                   priority
+                  unoptimized
                   className="object-cover"
                   sizes="(min-width: 768px) 44vw, 100vw"
                 />
@@ -79,6 +80,7 @@ export default async function Home() {
                     src={[demoImages.glass, demoImages.accessories, demoImages.lounge][index]}
                     alt={`${item.title} at Papa Smoke`}
                     fill
+                    unoptimized
                     className="object-cover"
                     sizes="(min-width: 768px) 33vw, 100vw"
                   />
@@ -123,6 +125,7 @@ export default async function Home() {
                 src={demoImages.lounge}
                 alt="Modern neon retail interior"
                 fill
+                unoptimized
                 className="object-cover"
                 sizes="(min-width: 768px) 45vw, 100vw"
               />

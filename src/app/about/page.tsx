@@ -20,6 +20,7 @@ export default function AboutPage() {
             src={demoImages.accessories}
             alt="Curated retail accessories display"
             fill
+            unoptimized
             className="object-cover"
             sizes="(min-width: 1024px) 1024px, 100vw"
           />

@@ -46,13 +46,13 @@ export const businessInfo = {
 
 export const demoImages = {
   hero:
-    "https://source.unsplash.com/1600x1200/?neon,smoke-shop,storefront",
+    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=80",
   glass:
-    "https://source.unsplash.com/900x700/?glass-pipe,smoke-shop",
+    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80",
   accessories:
-    "https://source.unsplash.com/900x700/?retail,accessories,neon",
+    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80",
   lounge:
-    "https://source.unsplash.com/1200x800/?neon,retail,interior",
+    "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80",
 };
 
 export const navLinks = [
