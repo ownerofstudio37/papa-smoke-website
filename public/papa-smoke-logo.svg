@@ -24,18 +24,18 @@
   <rect x="19" y="28" width="892" height="124" rx="10" stroke="#ff2a9a" stroke-opacity="0.28"/>
   <g opacity="0.42" transform="translate(9 13)" fill="#1a070f">
     <text x="36" y="119" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4">PAPA SM</text>
-    <circle cx="555" cy="87" r="34"/>
-    <text x="610" y="119" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4">KE</text>
+    <circle cx="535" cy="87" r="34"/>
+    <text x="590" y="119" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4">KE</text>
   </g>
   <g filter="url(#pink-glow)">
     <text x="34" y="116" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4" fill="url(#face)">PAPA SM</text>
-    <text x="610" y="116" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4" fill="url(#face)">KE</text>
-    <circle cx="555" cy="87" r="34" fill="none" stroke="url(#face)" stroke-width="16"/>
-    <circle cx="555" cy="87" r="14" fill="#080808"/>
+    <text x="590" y="116" font-family="Arial Black, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="4" fill="url(#face)">KE</text>
+    <circle cx="535" cy="87" r="34" fill="none" stroke="url(#face)" stroke-width="16"/>
+    <circle cx="535" cy="87" r="14" fill="#080808"/>
   </g>
   <g stroke="url(#smoke)" stroke-width="7" stroke-linecap="round" opacity="0.92">
-    <path d="M551 47C532 30 563 22 549 8"/>
-    <path d="M573 49C596 31 560 22 582 9"/>
-    <path d="M559 38C572 25 543 19 559 5"/>
+    <path d="M531 47C512 30 543 22 529 8"/>
+    <path d="M553 49C576 31 540 22 562 9"/>
+    <path d="M539 38C552 25 523 19 539 5"/>
   </g>
 </svg>
