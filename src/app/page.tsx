@@ -77,7 +77,7 @@ export default async function Home() {
               <article key={item.title} className="rounded border border-white/10 bg-black/35 p-6">
                 <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded">
                   <Image
-                    src={[demoImages.glass, demoImages.accessories, demoImages.lounge][index]}
+                    src={[demoImages.glass, demoImages.accessories, demoImages.localHelp][index]}
                     alt={`${item.title} at Papa Smoke`}
                     fill
                     unoptimized
