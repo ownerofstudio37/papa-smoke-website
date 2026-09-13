@@ -50,7 +50,7 @@ export const demoImages = {
   glass:
     "https://images.unsplash.com/photo-1579105857874-9ed653109e0d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   accessories:
-    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1618588487745-2d46620cabc5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmFwZXN8ZW58MHx8MHx8fDA%3D",
   localHelp:
     "https://images.unsplash.com/photo-1648824572388-08db4577c1e3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   lounge:
