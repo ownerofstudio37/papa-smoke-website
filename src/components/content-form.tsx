@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { WandSparkles } from "lucide-react";
 import { RichEditor } from "@/components/rich-editor";
-import { generateBlogDraft, generatePageDraft } from "@/app/actions";
 
 type Draft = {
   title?: string | null;
@@ -18,13 +17,14 @@ type ContentFormProps = {
   type: "post" | "page";
   action: (formData: FormData) => void | Promise<void>;
   item?: Draft & { id?: string; status?: string; featured_image_url?: string | null };
+  saveError?: string | null;
 };
 
-export function ContentForm({ type, action, item }: ContentFormProps) {
+export function ContentForm({ type, action, item, saveError }: ContentFormProps) {
   const [draft, setDraft] = useState<Draft>(item || {});
   const [topic, setTopic] = useState("");
   const [error, setError] = useState("");
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
   const isPost = type === "post";
 
   function generateDraft() {
@@ -32,17 +32,31 @@ export function ContentForm({ type, action, item }: ContentFormProps) {
       return;
     }
 
-    startTransition(async () => {
-      try {
-        setError("");
-        const nextDraft = isPost
-          ? await generateBlogDraft(topic)
-          : await generatePageDraft(topic);
-        setDraft(nextDraft);
-      } catch (caught) {
+    setIsPending(true);
+    setError("");
+
+    fetch("/api/ai-draft", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ topic, type: isPost ? "blog" : "page" }),
+    })
+      .then(async (response) => {
+        const payload = await response.json();
+
+        if (!response.ok) {
+          throw new Error(payload.error || "Unable to generate content.");
+        }
+
+        setDraft(payload.draft);
+      })
+      .catch((caught) => {
         setError(caught instanceof Error ? caught.message : "Unable to generate content.");
-      }
-    });
+      })
+      .finally(() => {
+        setIsPending(false);
+      });
   }
 
   return (
@@ -76,6 +90,11 @@ export function ContentForm({ type, action, item }: ContentFormProps) {
       </section>
 
       <form action={action} className="grid gap-5">
+        {saveError ? (
+          <p className="rounded border border-red-400/25 bg-red-500/10 p-3 text-sm font-bold text-red-100">
+            {saveError}
+          </p>
+        ) : null}
         {item?.id ? <input type="hidden" name="id" value={item.id} /> : null}
         <div className="grid gap-5 md:grid-cols-2">
           <Field label="Title" name="title" value={draft.title} onChange={setDraft} required />
