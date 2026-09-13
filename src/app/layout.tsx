@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Oswald } from "next/font/google";
 import "./globals.css";
 import { businessInfo, siteConfig } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,18 +22,23 @@ export const metadata: Metadata = {
     template: "%s | Papa Smoke",
   },
   description:
-    "Papa Smoke is a modern local smoke shop at 37125 FM 1774 #102 near Pinehurst and Magnolia, TX for glass, vapes, accessories, and friendly guidance.",
+    "Papa Smoke is a modern smoke shop at 37125 FM 1774 #102 near Pinehurst and Magnolia, TX for premium glass, vapes, wraps, papers, accessories, and local guidance.",
   keywords: [
     "Papa Smoke",
     "smoke shop Pinehurst TX",
+    "smoke shop Magnolia TX",
     "smokeshop Pinehurst",
+    "smokeshop Magnolia",
     "vape shop Pinehurst TX",
+    "vape shop Magnolia TX",
     "glass pipes Pinehurst TX",
+    "glass shop Magnolia TX",
+    "FM 1774 smoke shop",
   ],
   openGraph: {
     title: "Papa Smoke | Smoke Shop Near Pinehurst & Magnolia, TX",
     description:
-      "Visit Papa Smoke near Pinehurst and Magnolia, TX for premium smoke shop essentials, glass, vapes, and accessories.",
+      "Visit Papa Smoke on FM 1774 near Pinehurst and Magnolia, TX for premium smoke shop essentials, glass, vapes, wraps, papers, and accessories.",
     url: siteConfig.url,
     siteName: "Papa Smoke",
     locale: "en_US",
@@ -72,7 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

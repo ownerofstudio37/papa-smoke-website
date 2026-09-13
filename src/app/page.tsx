@@ -23,13 +23,13 @@ export default async function Home() {
               <MapPin className="size-4" />
               Smoke shop near Pinehurst and Magnolia, TX
             </p>
-            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white md:text-7xl">
-              Papa Smoke brings premium smoke shop essentials to FM 1774.
+            <h1 className="font-display max-w-4xl text-5xl font-black leading-[0.95] text-white md:text-7xl">
+              Papa Smoke brings premium glass, vapes, and accessories to FM 1774.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-stone-300">
-              Explore glass, vapes, wraps, accessories, and local guidance from
-              a modern smoke shop serving Pinehurst, Tomball, Magnolia, and
-              nearby Montgomery County.
+              Visit a modern smoke shop at 37125 FM 1774 #102 near Pinehurst
+              and Magnolia for glass pipes, vape essentials, wraps, papers,
+              cleaners, and helpful local guidance.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -68,8 +68,8 @@ export default async function Home() {
                     className="mb-5 h-auto w-full max-w-sm"
                   />
                   <p className="max-w-sm text-lg font-bold leading-7 text-white">
-                    A polished smoke shop presence built to help local shoppers
-                    find the store, browse guides, and shop online.
+                    Built to turn local searches for smoke shops, vapes, and
+                    glass near Pinehurst into store visits and online shoppers.
                   </p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default async function Home() {
                     sizes="(min-width: 768px) 33vw, 100vw"
                   />
                 </div>
-                <h2 className="text-2xl font-black text-white">{item.title}</h2>
+                <h2 className="font-display text-3xl font-black text-white">{item.title}</h2>
                 <p className="mt-3 leading-7 text-stone-300">{item.body}</p>
               </article>
             ))}
@@ -107,8 +107,8 @@ export default async function Home() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="font-bold text-teal-200">Local SEO Blog</p>
-              <h2 className="mt-2 text-4xl font-black text-white">
-                Guides from Papa Smoke
+              <h2 className="font-display mt-2 text-5xl font-black text-white">
+                Local smoke shop guides from Papa Smoke
               </h2>
             </div>
             <Link href="/blog" className="font-bold text-amber-200 hover:text-amber-100">
@@ -144,14 +144,14 @@ export default async function Home() {
             </div>
             <div>
               <p className="font-bold text-teal-200">Plan Your Stop</p>
-              <h2 className="mt-3 text-4xl font-black leading-tight text-white">
-                Browse online, visit the shop, or read a quick local guide first.
+              <h2 className="font-display mt-3 text-5xl font-black leading-tight text-white">
+                Browse online, visit the shop, or read a local guide first.
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-300">
                 Papa Smoke is open daily on FM 1774 for shoppers near Pinehurst,
-                Magnolia, Tomball, and Montgomery County. The site is built to
-                convert local searches into store visits, calls, and online
-                shopping clicks.
+                Magnolia, Tomball, The Woodlands, and Montgomery County. This
+                demo site gives the owner a search-ready homepage, helpful local
+                landing pages, and clear paths to directions and online shopping.
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 <a
@@ -186,7 +186,7 @@ export default async function Home() {
           <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="font-black uppercase tracking-[0.18em]">Papa Smoke</p>
-              <h2 className="mt-1 text-3xl font-black">
+              <h2 className="font-display mt-1 text-4xl font-black">
                 Serving {businessInfo.areaServed.slice(0, 3).join(", ")}.
               </h2>
             </div>

@@ -54,7 +54,7 @@ export const demoImages = {
   localHelp:
     "https://images.unsplash.com/photo-1648824572388-08db4577c1e3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   lounge:
-    "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1524653736724-8490ee06859d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHZhcGVzfGVufDB8fDB8fHww",
 };
 
 export const navLinks = [
@@ -67,14 +67,14 @@ export const navLinks = [
 export const defaultHomeSections = [
   {
     title: "Premium Glass",
-    body: "Hand pipes, water pipes, replacement parts, and practical guidance for the setup you actually want.",
+    body: "Shop glass pipes, water pipes, replacement parts, and display-worthy pieces near Pinehurst and Magnolia.",
   },
   {
     title: "Vapes & Accessories",
-    body: "A rotating selection of devices, wraps, papers, trays, cleaners, and everyday smoke shop essentials.",
+    body: "Find vape devices, wraps, papers, trays, cleaners, and everyday smoke shop accessories on FM 1774.",
   },
   {
     title: "Local Help",
-    body: "Friendly staff, straight answers, and a FM 1774 location built for quick stops or first-time questions.",
+    body: "Get friendly guidance, quick recommendations, and easy directions from Pinehurst, Magnolia, and Tomball.",
   },
 ];

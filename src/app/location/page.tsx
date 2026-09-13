@@ -14,7 +14,7 @@ export default function LocationPage() {
     <PublicShell>
       <main className="mx-auto max-w-7xl px-5 py-20">
         <p className="font-bold text-teal-200">Location & Contact</p>
-        <h1 className="mt-3 max-w-4xl text-5xl font-black text-white">
+        <h1 className="font-display mt-3 max-w-4xl text-6xl font-black text-white">
           Visit Papa Smoke near Pinehurst and Magnolia, TX.
         </h1>
         <div className="mt-10 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
@@ -51,7 +51,7 @@ export default function LocationPage() {
                 href={businessInfo.googleMapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded bg-amber-400 px-5 font-black text-black hover:bg-amber-300"
+                className="pressable inline-flex min-h-12 w-full items-center justify-center gap-2 rounded bg-amber-400 px-5 font-black text-black hover:bg-amber-300"
               >
                 Get Directions
                 <ExternalLink className="size-4" />
@@ -59,11 +59,12 @@ export default function LocationPage() {
             </div>
           </section>
           <section className="min-h-[22rem] rounded border border-white/10 bg-[linear-gradient(135deg,#121212,#1f332f)] p-8">
-            <h2 className="text-3xl font-black text-white">Serving nearby communities</h2>
+            <h2 className="font-display text-4xl font-black text-white">Serving nearby communities</h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-stone-300">
               Papa Smoke is located at {businessInfo.streetAddress} in{" "}
               {businessInfo.city}, close to Pinehurst, Tomball, The Woodlands,
-              and the surrounding Montgomery County area.
+              and the surrounding Montgomery County area for glass, vapes,
+              wraps, papers, and smoke shop accessories.
             </p>
             <div className="mt-8 overflow-hidden rounded border border-white/10 bg-black/30">
               <iframe
