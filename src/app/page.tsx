@@ -11,8 +11,14 @@ export default async function Home() {
   return (
     <PublicShell>
       <main>
-        <section className="mx-auto grid min-h-[78vh] max-w-7xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_0.9fr]">
-          <div>
+        <section className="relative mx-auto grid min-h-[78vh] max-w-7xl items-center gap-12 overflow-hidden px-5 py-16 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="vapor-field" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="wave-lines absolute inset-0 opacity-60" aria-hidden="true" />
+          <div className="relative z-10">
             <p className="mb-5 inline-flex items-center gap-2 rounded border border-amber-400/25 bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-200">
               <MapPin className="size-4" />
               Smoke shop near Pinehurst and Magnolia, TX
@@ -28,20 +34,20 @@ export default async function Home() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href={siteConfig.shopUrl}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-amber-400 px-6 font-black text-black hover:bg-amber-300"
+                className="pressable inline-flex min-h-12 items-center justify-center gap-2 rounded bg-amber-400 px-6 font-black text-black hover:bg-amber-300"
               >
                 Shop Online <ArrowRight className="size-4" />
               </a>
               <Link
                 href="/location"
-                className="inline-flex min-h-12 items-center justify-center rounded border border-white/15 px-6 font-bold text-white hover:border-teal-300"
+                className="pressable inline-flex min-h-12 items-center justify-center rounded border border-white/15 px-6 font-bold text-white hover:border-teal-300"
               >
                 Visit the Store
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="overflow-hidden rounded border border-white/10 bg-white/[0.04] shadow-2xl">
+          <div className="relative z-10">
+            <div className="lift-card image-zoom overflow-hidden rounded border border-white/10 bg-white/[0.04] shadow-2xl">
               <div className="relative aspect-[4/5]">
                 <Image
                   src={demoImages.hero}
@@ -71,11 +77,16 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-stone-950/80 px-5 py-16">
+        <section className="relative overflow-hidden border-y border-white/10 bg-stone-950/80 px-5 py-16">
+          <div className="vapor-field opacity-70" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
           <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
             {defaultHomeSections.map((item, index) => (
-              <article key={item.title} className="rounded border border-white/10 bg-black/35 p-6">
-                <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded">
+              <article key={item.title} className="lift-card relative z-10 rounded border border-white/10 bg-black/45 p-6">
+                <div className="image-zoom relative mb-5 aspect-[4/3] overflow-hidden rounded">
                   <Image
                     src={[demoImages.glass, demoImages.accessories, demoImages.localHelp][index]}
                     alt={`${item.title} at Papa Smoke`}
@@ -109,7 +120,7 @@ export default async function Home() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="rounded border border-white/10 bg-white/[0.04] p-6 hover:border-teal-300/50"
+                className="lift-card rounded border border-white/10 bg-white/[0.04] p-6 hover:border-teal-300/50"
               >
                 <h3 className="text-xl font-black text-white">{post.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-stone-300">{post.excerpt}</p>
@@ -118,9 +129,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-black px-5 py-16">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-            <div className="relative aspect-[5/4] overflow-hidden rounded border border-white/10">
+        <section className="relative overflow-hidden border-y border-white/10 bg-black px-5 py-16">
+          <div className="wave-lines absolute inset-0 opacity-50" aria-hidden="true" />
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+            <div className="lift-card image-zoom relative aspect-[5/4] overflow-hidden rounded border border-white/10">
               <Image
                 src={demoImages.lounge}
                 alt="Modern neon retail interior"
@@ -146,21 +158,21 @@ export default async function Home() {
                   href={businessInfo.googleMapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
+                  className="pressable rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
                 >
                   <MapPin className="size-5 text-amber-300" />
                   <p className="mt-3 font-black text-white">Directions</p>
                 </a>
                 <a
                   href={siteConfig.shopUrl}
-                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-teal-300/50"
+                  className="pressable rounded border border-white/10 bg-white/[0.04] p-4 hover:border-teal-300/50"
                 >
                   <ShoppingBag className="size-5 text-teal-200" />
                   <p className="mt-3 font-black text-white">Shop Online</p>
                 </a>
                 <Link
                   href="/blog"
-                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
+                  className="pressable rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
                 >
                   <Clock className="size-5 text-amber-300" />
                   <p className="mt-3 font-black text-white">Local Guides</p>
@@ -180,7 +192,7 @@ export default async function Home() {
             </div>
             <Link
               href="/location"
-              className="inline-flex min-h-12 items-center justify-center rounded bg-black px-6 font-black text-white hover:bg-stone-900"
+              className="pressable inline-flex min-h-12 items-center justify-center rounded bg-black px-6 font-black text-white hover:bg-stone-900"
             >
               Get Directions
             </Link>
