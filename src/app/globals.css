@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070707;
+  --foreground: #f7f0e6;
 }
 
 @theme inline {
@@ -12,15 +12,66 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 18% 8%, rgba(194, 65, 12, 0.2), transparent 30rem),
+    radial-gradient(circle at 88% 12%, rgba(20, 184, 166, 0.14), transparent 28rem),
+    #070707;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.content-html {
+  color: #e7dfd2;
+  line-height: 1.8;
+}
+
+.content-html h1,
+.content-html h2,
+.content-html h3 {
+  color: #fff7ed;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 2rem 0 1rem;
+}
+
+.content-html h1 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.content-html h2 {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+}
+
+.content-html h3 {
+  font-size: 1.35rem;
+}
+
+.content-html p,
+.content-html ul,
+.content-html ol {
+  margin: 1rem 0;
+}
+
+.content-html ul,
+.content-html ol {
+  padding-left: 1.25rem;
+}
+
+.content-html a {
+  color: #5eead4;
+  font-weight: 700;
+}
+
+.editor-surface:empty::before {
+  color: #8a8176;
+  content: attr(data-placeholder);
 }
