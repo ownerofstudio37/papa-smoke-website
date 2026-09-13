@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin } from "lucide-react";
 import { PublicShell } from "@/components/public-shell";
-import { businessInfo, defaultHomeSections, siteConfig } from "@/lib/site";
+import { businessInfo, defaultHomeSections, demoImages, siteConfig } from "@/lib/site";
 import { getPublishedPosts } from "@/lib/content";
 
 export default async function Home() {
@@ -40,21 +41,29 @@ export default async function Home() {
             </div>
           </div>
           <div className="relative">
-            <div className="rounded border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
-              <div className="aspect-[4/5] rounded bg-[linear-gradient(135deg,#15100b,#312012_45%,#071d1b)] p-6">
-                <div className="flex h-full flex-col justify-between border border-amber-300/30 p-6">
-                  <Sparkles className="size-10 text-teal-200" />
-                  <div>
-                    <p className="text-sm font-black uppercase tracking-[0.25em] text-amber-200">
-                      Local Goods
-                    </p>
-                    <h2 className="mt-3 text-4xl font-black text-white">
-                      Glass. Vapes. Accessories.
-                    </h2>
-                    <p className="mt-4 text-stone-300">
-                      Curated for daily shoppers and first-time visitors.
-                    </p>
-                  </div>
+            <div className="overflow-hidden rounded border border-white/10 bg-white/[0.04] shadow-2xl">
+              <div className="relative aspect-[4/5]">
+                <Image
+                  src={demoImages.hero}
+                  alt="Neon retail smoke shop atmosphere"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(min-width: 768px) 44vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <Image
+                    src="/papa-smoke-logo.svg"
+                    alt="Papa Smoke LED logo"
+                    width={390}
+                    height={98}
+                    className="mb-5 h-auto w-full max-w-sm"
+                  />
+                  <p className="max-w-sm text-lg font-bold leading-7 text-white">
+                    A polished smoke shop presence built to help local shoppers
+                    find the store, browse guides, and shop online.
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,8 +72,17 @@ export default async function Home() {
 
         <section className="border-y border-white/10 bg-stone-950/80 px-5 py-16">
           <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-            {defaultHomeSections.map((item) => (
+            {defaultHomeSections.map((item, index) => (
               <article key={item.title} className="rounded border border-white/10 bg-black/35 p-6">
+                <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded">
+                  <Image
+                    src={[demoImages.glass, demoImages.accessories, demoImages.lounge][index]}
+                    alt={`${item.title} at Papa Smoke`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                  />
+                </div>
                 <h2 className="text-2xl font-black text-white">{item.title}</h2>
                 <p className="mt-3 leading-7 text-stone-300">{item.body}</p>
               </article>
@@ -95,6 +113,31 @@ export default async function Home() {
                 <p className="mt-3 text-sm leading-6 text-stone-300">{post.excerpt}</p>
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-black px-5 py-16">
+          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+            <div className="relative aspect-[5/4] overflow-hidden rounded">
+              <Image
+                src={demoImages.lounge}
+                alt="Modern neon retail interior"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 45vw, 100vw"
+              />
+            </div>
+            <div>
+              <p className="font-bold text-teal-200">Demo-Ready Visual System</p>
+              <h2 className="mt-3 text-4xl font-black leading-tight text-white">
+                A brand direction that feels close to the real Papa Smoke sign.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-stone-300">
+                The new logo keeps the bold LED pink from the storefront photo,
+                cleans up the lettering for web use, and adds a subtle smoke
+                detail rising from the &quot;O&quot; for a memorable owner-facing concept.
+              </p>
+            </div>
           </div>
         </section>
 

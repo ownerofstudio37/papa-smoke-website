@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingBag, MapPin } from "lucide-react";
 import { navLinks, siteConfig } from "@/lib/site";
 
@@ -8,10 +9,13 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-black/75 backdrop-blur">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
           <Link href="/" className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded bg-amber-500 text-lg font-black text-black">
-              PS
-            </span>
-            <span className="text-lg font-black tracking-wide">Papa Smoke</span>
+            <Image
+              src="/papa-smoke-logo.svg"
+              alt="Papa Smoke"
+              width={160}
+              height={40}
+              className="h-10 w-40 object-contain object-left"
+            />
           </Link>
           <div className="hidden items-center gap-7 text-sm font-semibold text-stone-300 md:flex">
             {navLinks.map((link) => (

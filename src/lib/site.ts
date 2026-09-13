@@ -44,6 +44,17 @@ export const businessInfo = {
   areaServed: ["Pinehurst", "Tomball", "Magnolia", "The Woodlands", "Montgomery County"],
 };
 
+export const demoImages = {
+  hero:
+    "https://source.unsplash.com/1600x1200/?neon,smoke-shop,storefront",
+  glass:
+    "https://source.unsplash.com/900x700/?glass-pipe,smoke-shop",
+  accessories:
+    "https://source.unsplash.com/900x700/?retail,accessories,neon",
+  lounge:
+    "https://source.unsplash.com/1200x800/?neon,retail,interior",
+};
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
