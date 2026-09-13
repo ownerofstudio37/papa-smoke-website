@@ -14,10 +14,10 @@ export default async function Home() {
           <div>
             <p className="mb-5 inline-flex items-center gap-2 rounded border border-amber-400/25 bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-200">
               <MapPin className="size-4" />
-              Smoke shop in Pinehurst, TX
+              Smoke shop near Pinehurst and Magnolia, TX
             </p>
             <h1 className="max-w-4xl text-5xl font-black leading-[0.95] text-white md:text-7xl">
-              Papa Smoke brings premium smoke shop essentials to Pinehurst.
+              Papa Smoke brings premium smoke shop essentials to FM 1774.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-stone-300">
               Explore glass, vapes, wraps, accessories, and local guidance from

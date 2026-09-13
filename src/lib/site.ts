@@ -6,12 +6,41 @@ export const siteConfig = {
 
 export const businessInfo = {
   name: "Papa Smoke",
-  streetAddress: "Pinehurst, TX",
-  city: "Pinehurst",
+  streetAddress: "37125 FM 1774 #102",
+  city: "Magnolia",
   region: "TX",
-  postalCode: "77362",
-  phone: "(832) 555-0198",
+  postalCode: "77355",
+  phone: "(832) 382-3522",
   email: "hello@papasmoketx.com",
+  latitude: 30.1840845,
+  longitude: -95.7069624,
+  googleMapsUrl:
+    "https://www.google.com/maps/place/Papa+Smoke/@30.1840845,-95.7069624,971m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8647285219b438ed:0xb590225235ddc8b9!8m2!3d30.1840845!4d-95.7069624!16s%2Fg%2F1261wl710",
+  facebookUrl: "https://facebook.com/papasmokeshop",
+  openingHours: [
+    "Monday 10:00 AM - 10:00 PM",
+    "Tuesday 10:00 AM - 10:00 PM",
+    "Wednesday 10:00 AM - 10:00 PM",
+    "Thursday 10:00 AM - 10:00 PM",
+    "Friday 10:00 AM - 10:00 PM",
+    "Saturday 10:00 AM - 10:00 PM",
+    "Sunday 10:00 AM - 10:00 PM",
+  ],
+  openingHoursSpecification: [
+    {
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "10:00",
+      closes: "22:00",
+    },
+  ],
   areaServed: ["Pinehurst", "Tomball", "Magnolia", "The Woodlands", "Montgomery County"],
 };
 
@@ -33,6 +62,6 @@ export const defaultHomeSections = [
   },
   {
     title: "Local Help",
-    body: "Friendly staff, straight answers, and a Pinehurst location built for quick stops or first-time questions.",
+    body: "Friendly staff, straight answers, and a FM 1774 location built for quick stops or first-time questions.",
   },
 ];

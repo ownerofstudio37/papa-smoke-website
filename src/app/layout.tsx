@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Papa Smoke | Smoke Shop in Pinehurst, TX",
+    default: "Papa Smoke | Smoke Shop Near Pinehurst & Magnolia, TX",
     template: "%s | Papa Smoke",
   },
   description:
-    "Papa Smoke is a modern local smoke shop in Pinehurst, TX for glass, vapes, accessories, and friendly guidance near Tomball and Magnolia.",
+    "Papa Smoke is a modern local smoke shop at 37125 FM 1774 #102 near Pinehurst and Magnolia, TX for glass, vapes, accessories, and friendly guidance.",
   keywords: [
     "Papa Smoke",
     "smoke shop Pinehurst TX",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "glass pipes Pinehurst TX",
   ],
   openGraph: {
-    title: "Papa Smoke | Smoke Shop in Pinehurst, TX",
+    title: "Papa Smoke | Smoke Shop Near Pinehurst & Magnolia, TX",
     description:
-      "Visit Papa Smoke in Pinehurst, TX for premium smoke shop essentials, glass, vapes, and accessories.",
+      "Visit Papa Smoke near Pinehurst and Magnolia, TX for premium smoke shop essentials, glass, vapes, and accessories.",
     url: siteConfig.url,
     siteName: "Papa Smoke",
     locale: "en_US",
@@ -57,6 +57,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       postalCode: businessInfo.postalCode,
       addressCountry: "US",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: businessInfo.latitude,
+      longitude: businessInfo.longitude,
+    },
+    hasMap: businessInfo.googleMapsUrl,
+    sameAs: [businessInfo.facebookUrl],
+    openingHoursSpecification: businessInfo.openingHoursSpecification,
     areaServed: businessInfo.areaServed,
     priceRange: "$$",
   };
