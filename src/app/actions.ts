@@ -4,7 +4,6 @@ import { GoogleGenAI } from "@google/genai";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
-import { createSupabaseServiceClient } from "@/lib/supabase";
 import { businessInfo, siteConfig } from "@/lib/site";
 
 function slugify(input: string) {
@@ -35,7 +34,7 @@ async function requireAdminClient() {
     redirect("/login");
   }
 
-  return createSupabaseServiceClient();
+  return supabase;
 }
 
 export async function login(formData: FormData) {
@@ -64,10 +63,6 @@ export async function logout() {
 
 export async function savePost(formData: FormData) {
   const supabase = await requireAdminClient();
-
-  if (!supabase) {
-    throw new Error("Supabase service role key is not configured.");
-  }
 
   const id = field(formData, "id");
   const title = field(formData, "title");
@@ -105,10 +100,6 @@ export async function savePost(formData: FormData) {
 
 export async function savePage(formData: FormData) {
   const supabase = await requireAdminClient();
-
-  if (!supabase) {
-    throw new Error("Supabase service role key is not configured.");
-  }
 
   const id = field(formData, "id");
   const title = field(formData, "title");
@@ -158,7 +149,7 @@ async function generateGeminiContent(prompt: string, type: "blog" | "page") {
   const key = process.env.GEMINI_API_KEY;
 
   if (!key) {
-    throw new Error("GEMINI_API_KEY is not configured.");
+    return createDemoDraft(prompt, type);
   }
 
   const ai = new GoogleGenAI({ apiKey: key });
@@ -175,8 +166,18 @@ For ${type === "blog" ? "blog posts" : "pages"}, keep the writing helpful and lo
   });
 
   const text = response.text || "{}";
-  const jsonText = text.replace(/^```json\s*/i, "").replace(/```$/i, "").trim();
-  const parsed = JSON.parse(jsonText);
+  const jsonText = text
+    .replace(/^```json\s*/i, "")
+    .replace(/^```\s*/i, "")
+    .replace(/```$/i, "")
+    .trim();
+  let parsed;
+
+  try {
+    parsed = JSON.parse(jsonText);
+  } catch {
+    return createDraftFromText(prompt, text, type);
+  }
 
   return {
     title: String(parsed.title || ""),
@@ -186,4 +187,43 @@ For ${type === "blog" ? "blog posts" : "pages"}, keep the writing helpful and lo
     meta_description: String(parsed.meta_description || parsed.excerpt || ""),
     content: String(parsed.content || ""),
   };
+}
+
+function createDemoDraft(prompt: string, type: "blog" | "page") {
+  const topic = prompt
+    .replace(/^.*about:\s*/i, "")
+    .replace(/\.$/, "")
+    .trim();
+  const title =
+    type === "blog"
+      ? `${topic || "Papa Smoke"} Guide for Pinehurst Shoppers`
+      : `${topic || "Smoke Shop Guide"} in Pinehurst and Magnolia`;
+  const excerpt = `A helpful local guide from Papa Smoke for shoppers near Pinehurst, Magnolia, Tomball, and Montgomery County.`;
+
+  return {
+    title,
+    slug: slugify(title),
+    excerpt,
+    meta_title: title,
+    meta_description: excerpt,
+    content: `<h2>${title}</h2><p>Papa Smoke helps local shoppers near Pinehurst and Magnolia find glass, vapes, accessories, wraps, papers, cleaners, and everyday smoke shop essentials without making the visit complicated.</p><h3>What shoppers can expect</h3><ul><li>A clean local shop at ${businessInfo.streetAddress} in ${businessInfo.city}, ${businessInfo.region}</li><li>Helpful guidance for comparing products and accessories</li><li>Convenient access for Pinehurst, Tomball, Magnolia, and nearby Montgomery County</li></ul><p>Use this demo draft as a starting point, then add owner-approved product details, photos, and internal links before publishing.</p><p>Visit Papa Smoke in-store or use the shop online button to browse available items.</p>`,
+  };
+}
+
+function createDraftFromText(prompt: string, text: string, type: "blog" | "page") {
+  const fallback = createDemoDraft(prompt, type);
+
+  return {
+    ...fallback,
+    content: `<h2>${fallback.title}</h2><p>${escapeHtml(text).slice(0, 2500)}</p>`,
+  };
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import { savePost } from "@/app/actions";
 import { ContentForm } from "@/components/content-form";
-import { createSupabaseServiceClient, type Post } from "@/lib/supabase";
+import { type Post } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export default async function EditPostPage({ params }: PageProps<"/admin/posts/[id]">) {
   const { id } = await params;
-  const supabase = createSupabaseServiceClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = supabase
     ? await supabase.from("posts").select("*").eq("id", id).single()
     : { data: null };

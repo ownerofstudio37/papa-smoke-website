@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
-import { createSupabaseServiceClient, type Post } from "@/lib/supabase";
+import { type Post } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export default async function AdminPostsPage() {
-  const supabase = createSupabaseServiceClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = supabase
     ? await supabase.from("posts").select("*").order("updated_at", { ascending: false })
     : { data: [] };

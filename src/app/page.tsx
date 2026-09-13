@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, Clock, MapPin, ShoppingBag } from "lucide-react";
 import { PublicShell } from "@/components/public-shell";
 import { businessInfo, defaultHomeSections, demoImages, siteConfig } from "@/lib/site";
 import { getPublishedPosts } from "@/lib/content";
@@ -119,8 +119,8 @@ export default async function Home() {
         </section>
 
         <section className="border-y border-white/10 bg-black px-5 py-16">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-            <div className="relative aspect-[5/4] overflow-hidden rounded">
+          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+            <div className="relative aspect-[5/4] overflow-hidden rounded border border-white/10">
               <Image
                 src={demoImages.lounge}
                 alt="Modern neon retail interior"
@@ -131,15 +131,41 @@ export default async function Home() {
               />
             </div>
             <div>
-              <p className="font-bold text-teal-200">Demo-Ready Visual System</p>
+              <p className="font-bold text-teal-200">Plan Your Stop</p>
               <h2 className="mt-3 text-4xl font-black leading-tight text-white">
-                A brand direction that feels close to the real Papa Smoke sign.
+                Browse online, visit the shop, or read a quick local guide first.
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-300">
-                The new logo keeps the bold LED pink from the storefront photo,
-                cleans up the lettering for web use, and adds a subtle smoke
-                detail rising from the &quot;O&quot; for a memorable owner-facing concept.
+                Papa Smoke is open daily on FM 1774 for shoppers near Pinehurst,
+                Magnolia, Tomball, and Montgomery County. The site is built to
+                convert local searches into store visits, calls, and online
+                shopping clicks.
               </p>
+              <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                <a
+                  href={businessInfo.googleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
+                >
+                  <MapPin className="size-5 text-amber-300" />
+                  <p className="mt-3 font-black text-white">Directions</p>
+                </a>
+                <a
+                  href={siteConfig.shopUrl}
+                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-teal-300/50"
+                >
+                  <ShoppingBag className="size-5 text-teal-200" />
+                  <p className="mt-3 font-black text-white">Shop Online</p>
+                </a>
+                <Link
+                  href="/blog"
+                  className="rounded border border-white/10 bg-white/[0.04] p-4 hover:border-amber-300/50"
+                >
+                  <Clock className="size-5 text-amber-300" />
+                  <p className="mt-3 font-black text-white">Local Guides</p>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

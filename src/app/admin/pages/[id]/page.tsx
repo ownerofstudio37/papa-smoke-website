@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import { savePage } from "@/app/actions";
 import { ContentForm } from "@/components/content-form";
-import { createSupabaseServiceClient, type Page } from "@/lib/supabase";
+import { type Page } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export default async function EditPagePage({ params }: PageProps<"/admin/pages/[id]">) {
   const { id } = await params;
-  const supabase = createSupabaseServiceClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = supabase
     ? await supabase.from("pages").select("*").eq("id", id).single()
     : { data: null };

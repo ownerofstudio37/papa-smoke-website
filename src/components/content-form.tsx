@@ -23,6 +23,7 @@ type ContentFormProps = {
 export function ContentForm({ type, action, item }: ContentFormProps) {
   const [draft, setDraft] = useState<Draft>(item || {});
   const [topic, setTopic] = useState("");
+  const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
   const isPost = type === "post";
 
@@ -32,10 +33,15 @@ export function ContentForm({ type, action, item }: ContentFormProps) {
     }
 
     startTransition(async () => {
-      const nextDraft = isPost
-        ? await generateBlogDraft(topic)
-        : await generatePageDraft(topic);
-      setDraft(nextDraft);
+      try {
+        setError("");
+        const nextDraft = isPost
+          ? await generateBlogDraft(topic)
+          : await generatePageDraft(topic);
+        setDraft(nextDraft);
+      } catch (caught) {
+        setError(caught instanceof Error ? caught.message : "Unable to generate content.");
+      }
     });
   }
 
@@ -62,6 +68,11 @@ export function ContentForm({ type, action, item }: ContentFormProps) {
             {isPending ? "Generating" : "Generate"}
           </button>
         </div>
+        {error ? (
+          <p className="mt-3 rounded border border-red-400/25 bg-red-500/10 p-3 text-sm font-bold text-red-100">
+            {error}
+          </p>
+        ) : null}
       </section>
 
       <form action={action} className="grid gap-5">
