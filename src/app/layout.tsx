@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Oswald } from "next/font/google";
 import "./globals.css";
-import { businessInfo, siteConfig } from "@/lib/site";
+import { businessInfo, siteConfig, socialProof } from "@/lib/site";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -74,6 +74,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     openingHoursSpecification: businessInfo.openingHoursSpecification,
     areaServed: businessInfo.areaServed,
     priceRange: "$$",
+    interactionStatistic: [
+      {
+        "@type": "InteractionCounter",
+        interactionType: "https://schema.org/LikeAction",
+        userInteractionCount: Number(socialProof.facebookLikes),
+      },
+      {
+        "@type": "InteractionCounter",
+        interactionType: "https://schema.org/CheckInAction",
+        userInteractionCount: Number(socialProof.visits),
+      },
+    ],
   };
 
   return (

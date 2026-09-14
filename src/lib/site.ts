@@ -44,6 +44,21 @@ export const businessInfo = {
   areaServed: ["Pinehurst", "Tomball", "Magnolia", "The Woodlands", "Montgomery County"],
 };
 
+export const socialProof = {
+  recommendationRate: "80%",
+  reviewCount: "28",
+  facebookLikes: "743",
+  visits: "66",
+  headline: "Locals already know Papa Smoke.",
+  summary:
+    "Public listing data points to a familiar Magnolia smoke shop with steady local engagement, customer recommendations, and a reputation for inventory and helpful service.",
+  highlights: [
+    "Recommended by shoppers on Facebook",
+    "Known locally for smoke shop inventory",
+    "Easy FM 1774 stop near Pinehurst and Magnolia",
+  ],
+};
+
 export const demoImages = {
   hero:
     "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=80",
@@ -67,14 +82,14 @@ export const navLinks = [
 export const defaultHomeSections = [
   {
     title: "Premium Glass",
-    body: "Shop glass pipes, water pipes, replacement parts, and display-worthy pieces near Pinehurst and Magnolia.",
+    body: "Shop glass pipes, water pipes, replacement parts, and display-worthy pieces with local guidance near Pinehurst and Magnolia.",
   },
   {
     title: "Vapes & Accessories",
-    body: "Find vape devices, wraps, papers, trays, cleaners, and everyday smoke shop accessories on FM 1774.",
+    body: "Find vape devices, wraps, papers, trays, cleaners, and everyday accessories from a smoke shop people can find fast on FM 1774.",
   },
   {
     title: "Local Help",
-    body: "Get friendly guidance, quick recommendations, and easy directions from Pinehurst, Magnolia, and Tomball.",
+    body: "Get quick recommendations, friendly answers, and simple directions from Pinehurst, Magnolia, Tomball, and The Woodlands.",
   },
 ];

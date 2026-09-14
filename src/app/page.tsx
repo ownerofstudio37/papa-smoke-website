@@ -2,7 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, MapPin, ShoppingBag } from "lucide-react";
 import { PublicShell } from "@/components/public-shell";
-import { businessInfo, defaultHomeSections, demoImages, siteConfig } from "@/lib/site";
+import {
+  businessInfo,
+  defaultHomeSections,
+  demoImages,
+  siteConfig,
+  socialProof,
+} from "@/lib/site";
 import { getPublishedPosts } from "@/lib/content";
 
 export default async function Home() {
@@ -26,12 +32,13 @@ export default async function Home() {
               Smoke shop near Pinehurst and Magnolia, TX
             </p>
             <h1 className="font-display max-w-4xl text-5xl font-black leading-[0.95] text-white md:text-7xl">
-              Papa Smoke brings premium glass, vapes, and accessories to FM 1774.
+              A better smoke shop website for Papa Smoke on FM 1774.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-stone-300">
-              Visit a modern smoke shop at 37125 FM 1774 #102 near Pinehurst
-              and Magnolia for glass pipes, vape essentials, wraps, papers,
-              cleaners, and helpful local guidance.
+              This demo turns Papa Smoke’s local reputation into a polished
+              search-ready site for glass pipes, vape essentials, wraps, papers,
+              cleaners, directions, and online shopping near Pinehurst and
+              Magnolia.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -71,8 +78,8 @@ export default async function Home() {
                     className="mb-5 h-auto w-full max-w-sm"
                   />
                   <p className="max-w-sm text-lg font-bold leading-7 text-white">
-                    Built to turn local searches for smoke shops, vapes, and
-                    glass near Pinehurst into store visits and online shoppers.
+                    Built to turn searches for smoke shops, vapes, and glass
+                    near Pinehurst into store visits, calls, and online shoppers.
                   </p>
                 </div>
               </div>
@@ -109,12 +116,59 @@ export default async function Home() {
           </div>
         </section>
 
+        <section className="relative overflow-hidden px-5 py-16">
+          <div className="wave-lines absolute inset-0 opacity-40" aria-hidden="true" />
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-8 rounded border border-white/10 bg-black/70 p-6 md:grid-cols-[0.9fr_1.1fr] md:p-8">
+            <div>
+              <p className="font-bold text-teal-200">Social Proof</p>
+              <h2 className="font-display mt-3 text-5xl font-black leading-tight text-white">
+                {socialProof.headline}
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-stone-300">
+                {socialProof.summary}
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="lift-card rounded border border-white/10 bg-white/[0.04] p-5">
+                <p className="font-display text-5xl font-black text-amber-300">
+                  {socialProof.recommendationRate}
+                </p>
+                <p className="mt-2 font-bold text-white">recommend on Facebook</p>
+                <p className="mt-1 text-sm text-stone-400">
+                  Based on {socialProof.reviewCount} public reviews.
+                </p>
+              </div>
+              <div className="lift-card rounded border border-white/10 bg-white/[0.04] p-5">
+                <p className="font-display text-5xl font-black text-teal-200">
+                  {socialProof.facebookLikes}
+                </p>
+                <p className="mt-2 font-bold text-white">Facebook likes</p>
+                <p className="mt-1 text-sm text-stone-400">
+                  Plus {socialProof.visits} public check-ins.
+                </p>
+              </div>
+              <div className="rounded border border-white/10 bg-white/[0.04] p-5 sm:col-span-2">
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-amber-200">
+                  What listings point to
+                </p>
+                <ul className="mt-4 grid gap-3 text-sm font-bold text-stone-200 md:grid-cols-3">
+                  {socialProof.highlights.map((highlight) => (
+                    <li key={highlight} className="rounded bg-black/50 p-3">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-5 py-16">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="font-bold text-teal-200">Local SEO Blog</p>
               <h2 className="font-display mt-2 text-5xl font-black text-white">
-                Local smoke shop guides from Papa Smoke
+                Local guides that help Papa Smoke win nearby searches
               </h2>
             </div>
             <Link href="/blog" className="font-bold text-amber-200 hover:text-amber-100">
@@ -156,9 +210,10 @@ export default async function Home() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-300">
                 Papa Smoke is open daily on FM 1774 for shoppers near Pinehurst,
-                Magnolia, Tomball, The Woodlands, and Montgomery County. This
-                demo site gives the owner a search-ready homepage, helpful local
-                landing pages, and clear paths to directions and online shopping.
+                Magnolia, Tomball, The Woodlands, and Montgomery County. The
+                site pairs trust signals, local SEO pages, CMS publishing, and
+                CRM lead capture with clear paths to directions and online
+                shopping.
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 <a
