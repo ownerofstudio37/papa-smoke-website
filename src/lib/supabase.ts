@@ -28,6 +28,32 @@ export type Page = {
   updated_at: string;
 };
 
+export type Lead = {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  company: string | null;
+  subject: string | null;
+  message: string;
+  source: string;
+  status: "new" | "contacted" | "qualified" | "won" | "lost" | "spam";
+  priority: "low" | "normal" | "high";
+  admin_notes: string | null;
+  last_contacted_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type LeadEvent = {
+  id: string;
+  lead_id: string;
+  event_type: "note" | "email" | "call" | "status_change" | "form_submission";
+  body: string | null;
+  metadata: Record<string, unknown>;
+  created_at: string;
+};
+
 export const isSupabaseConfigured = Boolean(
   process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
 );

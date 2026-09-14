@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileText, LayoutDashboard, LogOut, Newspaper, Sparkles } from "lucide-react";
+import { ContactRound, FileText, LayoutDashboard, LogOut, Newspaper, Sparkles } from "lucide-react";
 import { logout } from "@/app/actions";
 
 export function AdminNav() {
@@ -7,6 +7,7 @@ export function AdminNav() {
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/posts", label: "Posts", icon: Newspaper },
     { href: "/admin/pages", label: "Pages", icon: FileText },
+    { href: "/admin/crm", label: "CRM", icon: ContactRound },
     { href: "/admin/ai-writer", label: "AI Writer", icon: Sparkles },
   ];
 

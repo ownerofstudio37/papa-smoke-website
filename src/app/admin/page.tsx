@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FilePlus2, Newspaper, Sparkles } from "lucide-react";
+import { ContactRound, FilePlus2, Newspaper, Sparkles } from "lucide-react";
 
 export default function AdminPage() {
   const cards = [
@@ -20,6 +20,12 @@ export default function AdminPage() {
       title: "AI Writer",
       body: "Open the focused AI generation workspace.",
       icon: Sparkles,
+    },
+    {
+      href: "/admin/crm",
+      title: "CRM",
+      body: "Track owner-demo leads, contact form submissions, and follow-up notes.",
+      icon: ContactRound,
     },
   ];
 

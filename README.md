@@ -33,6 +33,9 @@ NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY
 GEMINI_API_KEY
+RESEND_API_KEY
+ADMIN_NOTIFY_EMAIL
+FROM_EMAIL
 ```
 
 4. Run `supabase/schema.sql` in the Supabase SQL editor.
@@ -52,6 +55,12 @@ npm run dev
 - `/admin/pages` manages custom dynamic pages stored in `public.pages`.
 - New posts and pages include a Gemini-powered topic prompt that populates title, slug, metadata, excerpt, and HTML content.
 - The editor supports rich formatting and a text-only mode for simple WordPress-style edits.
+
+## CRM
+
+- `/admin/crm` lists leads captured from the public Location page contact form.
+- Each lead has status, priority, internal notes, last contacted date, and a timeline.
+- Resend is not activated yet, but the env placeholders are included for future owner/admin notification emails.
 
 ## SEO
 
