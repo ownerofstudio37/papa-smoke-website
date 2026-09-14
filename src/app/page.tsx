@@ -16,6 +16,8 @@ export default async function Home() {
             <span />
             <span />
             <span />
+            <span />
+            <span />
           </div>
           <div className="wave-lines absolute inset-0 opacity-60" aria-hidden="true" />
           <div className="relative z-10">
@@ -47,8 +49,9 @@ export default async function Home() {
             </div>
           </div>
           <div className="relative z-10">
-            <div className="lift-card image-zoom overflow-hidden rounded border border-white/10 bg-white/[0.04] shadow-2xl">
+            <div className="lift-card image-zoom neon-panel overflow-hidden rounded border border-white/10 bg-white/[0.04] shadow-2xl">
               <div className="relative aspect-[4/5]">
+                <span className="smoke-ring" aria-hidden="true" />
                 <Image
                   src={demoImages.hero}
                   alt="Neon retail smoke shop atmosphere"
@@ -82,11 +85,14 @@ export default async function Home() {
             <span />
             <span />
             <span />
+            <span />
+            <span />
           </div>
           <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
             {defaultHomeSections.map((item, index) => (
-              <article key={item.title} className="lift-card relative z-10 rounded border border-white/10 bg-black/45 p-6">
+              <article key={item.title} className="lift-card neon-panel relative z-10 overflow-hidden rounded border border-white/10 bg-black/45 p-6">
                 <div className="image-zoom relative mb-5 aspect-[4/3] overflow-hidden rounded">
+                  <span className="smoke-ring" aria-hidden="true" />
                   <Image
                     src={[demoImages.glass, demoImages.accessories, demoImages.localHelp][index]}
                     alt={`${item.title} at Papa Smoke`}
@@ -120,7 +126,7 @@ export default async function Home() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="lift-card rounded border border-white/10 bg-white/[0.04] p-6 hover:border-teal-300/50"
+                className="lift-card neon-panel overflow-hidden rounded border border-white/10 bg-white/[0.04] p-6 hover:border-teal-300/50"
               >
                 <h3 className="text-xl font-black text-white">{post.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-stone-300">{post.excerpt}</p>
@@ -132,7 +138,8 @@ export default async function Home() {
         <section className="relative overflow-hidden border-y border-white/10 bg-black px-5 py-16">
           <div className="wave-lines absolute inset-0 opacity-50" aria-hidden="true" />
           <div className="relative z-10 mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-            <div className="lift-card image-zoom relative aspect-[5/4] overflow-hidden rounded border border-white/10">
+            <div className="lift-card image-zoom neon-panel relative aspect-[5/4] overflow-hidden rounded border border-white/10">
+              <span className="smoke-ring" aria-hidden="true" />
               <Image
                 src={demoImages.lounge}
                 alt="Modern neon retail interior"

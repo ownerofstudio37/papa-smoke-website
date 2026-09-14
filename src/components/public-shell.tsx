@@ -6,6 +6,7 @@ import { navLinks, siteConfig } from "@/lib/site";
 export function PublicShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="smoke-page min-h-screen bg-[#070707] text-stone-100">
+      <div className="smoke-page__glow" aria-hidden="true" />
       <header className="sticky top-0 z-40 border-b border-white/10 bg-black/75 backdrop-blur">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
           <Link href="/" className="pressable flex items-center gap-3">

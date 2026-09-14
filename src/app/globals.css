@@ -18,8 +18,9 @@
 
 body {
   background:
-    radial-gradient(circle at 18% 8%, rgba(194, 65, 12, 0.2), transparent 30rem),
-    radial-gradient(circle at 88% 12%, rgba(20, 184, 166, 0.14), transparent 28rem),
+    radial-gradient(ellipse at 18% 8%, rgba(255, 42, 154, 0.16), transparent 34rem),
+    radial-gradient(ellipse at 88% 12%, rgba(20, 184, 166, 0.16), transparent 30rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 36%),
     #070707;
   color: var(--foreground);
   font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
@@ -41,33 +42,44 @@ a {
 
 .smoke-page::before,
 .smoke-page::after {
-  animation: vapor-drift 22s ease-in-out infinite;
+  animation: vapor-drift 20s ease-in-out infinite;
   background:
-    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1), transparent 62%),
-    radial-gradient(ellipse at center, rgba(94, 234, 212, 0.08), transparent 58%);
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.14), transparent 62%),
+    radial-gradient(ellipse at center, rgba(94, 234, 212, 0.12), transparent 58%);
   border-radius: 999px;
   content: "";
-  filter: blur(24px);
-  height: 34rem;
-  left: -10rem;
-  opacity: 0.42;
+  filter: blur(28px);
+  height: 38rem;
+  left: -9rem;
+  opacity: 0.5;
   pointer-events: none;
   position: fixed;
   top: 15vh;
   transform: rotate(-8deg);
-  width: 22rem;
+  width: 24rem;
   z-index: -1;
 }
 
 .smoke-page::after {
   animation-delay: -8s;
-  height: 40rem;
+  height: 44rem;
   left: auto;
-  opacity: 0.3;
+  opacity: 0.38;
   right: -11rem;
   top: 42vh;
   transform: rotate(12deg);
-  width: 26rem;
+  width: 30rem;
+}
+
+.smoke-page .smoke-page__glow {
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255, 42, 154, 0.07) 18%, transparent 38%),
+    linear-gradient(70deg, transparent 30%, rgba(94, 234, 212, 0.06) 50%, transparent 72%);
+  inset: 0;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
 }
 
 .vapor-field {
@@ -79,21 +91,22 @@ a {
 }
 
 .vapor-field span {
-  animation: vapor-drift 16s ease-in-out infinite;
+  animation: vapor-drift 15s ease-in-out infinite;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
-    rgba(94, 234, 212, 0.18),
+    rgba(255, 255, 255, 0.16),
+    rgba(94, 234, 212, 0.24),
+    rgba(255, 42, 154, 0.12),
     transparent
   );
   border-radius: 999px;
-  filter: blur(14px);
-  height: 5rem;
-  opacity: 0.35;
+  filter: blur(16px);
+  height: 5.5rem;
+  opacity: 0.42;
   position: absolute;
   transform: rotate(-12deg);
-  width: 24rem;
+  width: 28rem;
 }
 
 .vapor-field span:nth-child(1) {
@@ -115,13 +128,60 @@ a {
   transform: rotate(4deg);
 }
 
+.vapor-field span:nth-child(4) {
+  animation-delay: -2s;
+  bottom: 24%;
+  left: 8%;
+  transform: rotate(10deg);
+  width: 34rem;
+}
+
+.vapor-field span:nth-child(5) {
+  animation-delay: -12s;
+  right: 18%;
+  top: 8%;
+  transform: rotate(-4deg);
+  width: 20rem;
+}
+
 .wave-lines {
-  animation: wave-breathe 18s ease-in-out infinite;
+  animation: wave-breathe 16s ease-in-out infinite;
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 42, 154, 0.06) 1px, transparent 1px);
-  background-size: 4.5rem 4.5rem;
+    linear-gradient(rgba(94, 234, 212, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 42, 154, 0.07) 1px, transparent 1px),
+    repeating-linear-gradient(115deg, transparent 0 1.7rem, rgba(255, 255, 255, 0.025) 1.7rem 1.78rem);
+  background-size: 4.5rem 4.5rem, 4.5rem 4.5rem, 12rem 12rem;
   mask-image: linear-gradient(to bottom, transparent, black 18%, black 72%, transparent);
+}
+
+.neon-panel {
+  position: relative;
+}
+
+.neon-panel::after {
+  animation: neon-sheen 5.5s ease-in-out infinite;
+  background: linear-gradient(
+    115deg,
+    transparent 18%,
+    rgba(255, 255, 255, 0.11) 36%,
+    rgba(94, 234, 212, 0.16) 43%,
+    transparent 58%
+  );
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-60%);
+}
+
+.smoke-ring {
+  animation: smoke-pulse 3.8s ease-in-out infinite;
+  border: 1px solid rgba(94, 234, 212, 0.2);
+  border-radius: inherit;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
 }
 
 .lift-card,
@@ -134,8 +194,8 @@ a {
 }
 
 .lift-card:hover {
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35), 0 0 34px rgba(20, 184, 166, 0.1);
-  transform: translateY(-4px);
+  box-shadow: 0 24px 78px rgba(0, 0, 0, 0.42), 0 0 44px rgba(20, 184, 166, 0.16);
+  transform: translateY(-5px);
 }
 
 .pressable:hover {
@@ -164,6 +224,34 @@ a {
   50% {
     opacity: 0.52;
     translate: 2rem -1rem;
+  }
+}
+
+@keyframes neon-sheen {
+  0%,
+  58%,
+  100% {
+    opacity: 0;
+    transform: translateX(-65%);
+  }
+  74% {
+    opacity: 0.65;
+  }
+  88% {
+    opacity: 0;
+    transform: translateX(65%);
+  }
+}
+
+@keyframes smoke-pulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 rgba(94, 234, 212, 0), 0 0 0 rgba(255, 42, 154, 0);
+    opacity: 0.4;
+  }
+  50% {
+    box-shadow: inset 0 0 34px rgba(94, 234, 212, 0.08), 0 0 36px rgba(255, 42, 154, 0.12);
+    opacity: 1;
   }
 }
 
